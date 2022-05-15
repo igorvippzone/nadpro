@@ -1,0 +1,336 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  background-color: #3fa395;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1261px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+section {
+  margin: 40px 0;
+}
+
+.inner__consultation {
+  padding-top: 90px;
+  position: relative;
+}
+
+.inner__consultation::after {
+  content: "";
+  position: absolute;
+  display: block;
+  max-width: 529px;
+  max-height: 490px;
+  width: 100%;
+  height: 100%;
+  bottom: -12px;
+  right: -130px;
+  background: url(../images/bg-consultation.png) no-repeat 100%;
+}
+
+.consultation__content {
+
+  background: white;
+  padding: 65px 350px 65px 100px;
+}
+
+h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+form {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+
+  align-items: baseline;
+
+}
+
+form>* {
+  max-width: 310px;
+  width: 45%;
+  margin-right: 5%;
+  margin-bottom: 26px;
+}
+
+/* custom-input */
+.custom-input {
+  display: flex;
+  flex-direction: column-reverse;
+
+  position: relative;
+}
+
+.custom-input input {
+  border: none;
+  border-radius: 28px;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 12px 25px;
+
+  outline: none;
+
+}
+
+.custom-input label {
+  color: #616161;
+  transform: translateY(12px) scale(1);
+  font-size: 16px;
+
+  margin-left: 25px;
+
+  padding: 0 5px;
+
+  transform-origin: top left;
+
+  transition: transform .3s;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.custom-input .fieldset-border {
+
+  text-align: left;
+  position: absolute;
+  inset: -5px 0px 0px;
+  margin: 0px;
+  padding: 0px 25px;
+  pointer-events: none;
+
+  overflow: hidden;
+  min-width: 0%;
+  border-radius: 28px;
+  border: 1px solid #000;
+}
+
+.custom-input .hidden-label {
+
+  float: unset;
+  overflow: hidden;
+  display: block;
+  width: auto;
+  padding: 0;
+  height: 11px;
+  font-size: 0.75em;
+  visibility: hidden;
+  max-width: 0.01px;
+
+  transition: max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  white-space: nowrap;
+}
+
+.custom-input .hidden-label span {
+
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  opacity: 0;
+  visibility: visible;
+}
+
+.custom-input input:focus~label,
+.custom-input input:not(:placeholder-shown)~label {
+  color: #212121;
+  transform: translateY(-8px) scale(0.75);
+  transition: transform 0.3s;
+}
+
+.custom-input input:focus~.fieldset-border .hidden-label,
+.custom-input input:not(:placeholder-shown)~.fieldset-border .hidden-label {
+  max-width: 100%;
+  transition: max-width 3s;
+}
+
+/* custom-checkbox */
+
+.custom-checkbox {
+  order: 1;
+  margin-top: 26px;
+}
+
+.custom-checkbox input {
+  display: none;
+}
+
+.custom-checkbox label {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  cursor: pointer;
+
+  align-content: center
+}
+
+.custom-checkbox label p {
+  margin: 0;
+}
+
+.custom-checkbox label::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 2px solid #3fa395;
+  margin-right: 14px;
+  flex-shrink: 0;
+}
+
+.custom-checkbox label::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 8px;
+  background: url(../images/checkbox.svg) no-repeat center/contain;
+  position: absolute;
+  left: 3px;
+  order: -1;
+}
+
+.custom-checkbox input+label::after {
+  content: none;
+}
+
+.custom-checkbox input:checked+label::before {
+  background-color: #3fa395;
+}
+
+.custom-checkbox input:checked+label::after {
+  content: "";
+}
+
+.my-btn {
+  background-color: #f68500;
+  color: #fff;
+  font-size: 20px;
+
+  font-weight: 700;
+  border-radius: 27px;
+  max-width: 277px;
+
+  height: 56px;
+  padding: 0;
+
+
+  font-family: 'Raleway', sans-serif;
+
+}
+
+
+@media screen and (max-width: 1919px) {
+  h2 {
+    font-size: calc(100vw/100 + 1.6rem);
+
+  }
+
+  .consultation__content {}
+
+}
+
+@media screen and (max-width: 1199px) {
+  section {
+    margin: 20px 0;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  form>* {
+    max-width: none;
+    width: 100%;
+    margin-right: 0;
+  }
+
+
+
+  .inner__consultation::after {
+
+    max-width: 429px;
+    max-height: 390px;
+    bottom: -7px;
+    right: -100px;
+
+    background-size: cover;
+
+  }
+
+  .consultation__content {
+    padding-right: 30%;
+  }
+}
+
+@media screen and (max-width: 799px) {
+
+  .container {
+
+    padding: 0 5px;
+
+  }
+
+  /* .inner__consultation::after {
+    content: none;
+  } */
+
+  .inner__consultation::after {
+    content: "";
+    position: absolute;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+
+    background-size: contain;
+    background-position: center;
+    z-index: -1;
+  }
+
+  .consultation__content {
+    /* background: url(../images/bg-consultation.png) no-repeat 100% 100%, rgb(157, 25, 25); */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5% 8%;
+    z-index: 200;
+  }
+
+  h2 {
+    font-size: calc(100vw/100 + 1.3rem);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #text:before {
+    Content: "Разрешение для экранов   до 800px(смартфоны)";
+  }
+}
+
+
+/* ***************************** */
