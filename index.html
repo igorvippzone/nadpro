@@ -25,10 +25,10 @@
 
       <div class="consultation__content">
         <h2>Бесплатная консультация</h2>
-        <form>
+        <form id="form-feedback" action="#">
 
           <div class="custom-input">
-            <input id="name" name="name" type="text" placeholder=" " />
+            <input id="name" class="_req _name" name="name" type="text" placeholder=" " />
             <label for="name">Имя</label>
             <fieldset class="fieldset-border">
               <legend class="hidden-label">
@@ -51,7 +51,7 @@
           </div>
 
           <div class="custom-input">
-            <input id="phone" name="phone" type="tel" placeholder=" " />
+            <input id="phone" class="_req _tel" name="phone" type="tel" placeholder=" " />
             <label for="phone">Телефон</label>
             <fieldset class="fieldset-border">
               <legend class="hidden-label">
@@ -65,9 +65,9 @@
 
 
           <div class="custom-checkbox">
-            <input id="personal-data" name="personal-data" type="checkbox" />
+            <input id="personal-data" class="_req" name="personal-data" type="checkbox"  checked />
             <label for="personal-data">
-              <p>Даю согласие на обработку <a href="#">персональных данных</a></p>
+              <p>Даю согласие на обработку <a href="#" class="personal-data__link">персональных данных</a>.</p>
             </label>
           </div>
 
