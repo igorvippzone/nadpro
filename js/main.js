@@ -1,8 +1,9 @@
-// mask
-$("#phone").mask("+7 (000) 000-00-00");
-console.log();
-
 document.addEventListener("DOMContentLoaded", () => {
+  // mask
+  $("#phone").mask("+7 (000) 000-00-00");
+
+  // send-form and validation
+
   let formFeedback = document.getElementById("form-feedback");
   formFeedback.addEventListener("submit", formSend);
 
@@ -14,19 +15,26 @@ document.addEventListener("DOMContentLoaded", () => {
     let formData = new FormData(formFeedback);
 
     if (error === 0) {
-      formFeedback.classList.add('_sending')
-      let response = await fetch("data.php", {
-        method: "POST",
-        body: formData,
-      });
-      if (response.ok) {
-        let result = await response.json();
-        alert(result.message);
-        formPreview.innerHTML = '';
-        form.reset();
-      } else {
-        alert("Ошибка")
-      }
+      formFeedback.classList.add("_sending");
+
+      setTimeout(() => {
+        formReset(formFeedback);
+        formFeedback.classList.remove("_sending");
+        alert("Заявка успешно отправлена");
+      }, 1000);
+
+      // let response = await fetch("sendmail.php", {
+      //   method: "POST",
+      //   body: formData,
+      // });
+      // if (response.ok) {
+      //   let result = await response.json();
+      //   alert(result.message);
+      //   formPreview.innerHTML = '';
+      //   form.reset();
+      // } else {
+      //   alert("Ошибка")
+      // }
     }
   }
 
@@ -68,6 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function formRemoveError(input) {
     input.parentElement.classList.remove("_error");
     // input.classList.remove('_error');
+  }
+
+  function formReset(form) {
+    let inputs = document.querySelectorAll("input");
+    inputs.forEach((input) => {
+      input.value = "";
+    });
   }
 });
 
